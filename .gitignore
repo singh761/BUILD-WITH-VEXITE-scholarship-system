@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build
+dist/
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Database
+backend/db/*.db
+backend/db/*.db-journal
+backend/db/*.db-wal
+backend/db/*.db-shm
+
+# Logs
+*.log

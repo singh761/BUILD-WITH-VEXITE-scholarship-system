@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* --- Design tokens: sal-forest & turmeric palette, distinct from stock AI defaults --- */
+  --forest: #1E3A2F;
+  --forest-deep: #142A21;
+  --turmeric: #C98A2C;
+  --turmeric-deep: #A66F1E;
+  --sandstone: #EFE9DA;
+  --sandstone-deep: #E4DBC5;
+  --ink: #262421;
+  --ink-soft: #57534A;
+  --slate: #3D5A6C;
+  --white: #FFFDF9;
+  --green-signal: #3C7A4F;
+  --yellow-signal: #B98418;
+  --red-signal: #A8402A;
+
+  --radius: 3px;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--sandstone);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; margin: 0; line-height: 1.15; }
+
+p { line-height: 1.55; }
+
+a { color: inherit; }
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--turmeric-deep);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary { background: var(--forest); color: var(--white); }
+.btn-primary:hover { background: var(--forest-deep); }
+
+.btn-accent { background: var(--turmeric); color: var(--forest-deep); }
+.btn-accent:hover { background: var(--turmeric-deep); color: var(--white); }
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--forest);
+  color: var(--forest);
+}
+.btn-outline:hover { background: var(--forest); color: var(--white); }
+
+.btn-danger { background: var(--red-signal); color: var(--white); }
+.btn-danger:hover { background: #832F1F; }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.field input, .field select, .field textarea {
+  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--sandstone-deep);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--slate);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--sandstone-deep);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.error-banner {
+  background: #F6E4DC;
+  border: 1px solid var(--red-signal);
+  color: var(--red-signal);
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 0.75rem 0.9rem; font-size: 0.88rem; }
+thead th {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--forest);
+  font-size: 0.78rem;
+  text-transform: none;
+}
+tbody tr { border-bottom: 1px solid var(--sandstone-deep); }
+tbody tr:hover { background: var(--sandstone-deep); }
+
+.risk-pill, .status-pill {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.risk-Green { background: #DEEEDF; color: var(--green-signal); }
+.risk-Yellow { background: #F7EAD1; color: var(--yellow-signal); }
+.risk-Red { background: #F3DAD3; color: var(--red-signal); }
+
+.status-pill { background: var(--sandstone-deep); color: var(--ink-soft); }
+.status-pill.status-approved, .status-pill.status-disbursed { background: #DEEEDF; color: var(--green-signal); }
+.status-pill.status-rejected { background: #F3DAD3; color: var(--red-signal); }
+.status-pill.status-escalated { background: #F7EAD1; color: var(--yellow-signal); }
+
+::selection { background: var(--turmeric); color: var(--forest-deep); }
